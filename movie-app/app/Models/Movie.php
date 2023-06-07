@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
+
 {
+    protected $fillable = ['judul', 'poster', 'genre_id', 'negara', 'tahun', 'rating'];
+
     use HasFactory;
 
     public function genre()
