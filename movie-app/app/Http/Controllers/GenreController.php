@@ -59,7 +59,8 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        $genres = Genre::all();
+        return view('genres.edit',compact('genre','genres'));
     }
 
     /**
@@ -67,7 +68,14 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        $validateData = $request->validate([
+            'nama' => 'required',
+            'desk' => 'required',
+           
+        ]); 
+
+        $genre->update($validateData);
+        return redirect('/genres')->with('success','Data berhasil di update');  
     }
 
     /**
